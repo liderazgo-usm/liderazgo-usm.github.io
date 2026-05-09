@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Seminario Detrás del Éxito — Líderes que Inspiran. 5ª edición organizada por el Departamento de Ingeniería Comercial de la UTFSM. 11 de junio de 2026, Ex Bolsa de Valores, Valparaíso." />
+  <title>Detrás del Éxito · Líderes que Inspiran 2026 · UTFSM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =====================================================
+       RESET & BASE
+    ===================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:     #0D1B3E;
+      --navy-90:  rgba(13,27,62,.92);
+      --beige:    #F5F3EE;
+      --beige-d:  #EAE6DC;
+      --gold:     #C9A84C;
+      --gold-l:   #DEBA6A;
+      --gold-d:   #A8852E;
+      --white:    #FFFFFF;
+      --slate:    #CBD5E1;
+      --slate-d:  #94A3B8;
+      --radius:   12px;
+      --radius-sm:8px;
+      --tr:       .3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* =====================================================
+       TYPOGRAPHY
+    ===================================================== */
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: .75rem;
+    }
+
+    .section-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .section-title em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.15em;
+    }
+
+    /* =====================================================
+       LAYOUT
+    ===================================================== */
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-dark  { background: var(--navy); color: var(--white); }
+    .section-light { background: var(--beige); color: var(--navy); }
+
+    .section-inner { padding: 6rem 0; }
+
+    .gold-line {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.25rem 0 2rem;
+    }
+    .section-light .gold-line { background: var(--gold-d); }
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .8rem 1.75rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: all var(--tr);
+      border: 2px solid transparent;
+      text-decoration: none;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .btn-gold:hover {
+      background: var(--gold-l);
+      border-color: var(--gold-l);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201,168,76,.35);
+    }
+    .btn-outline-light {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,.35);
+    }
+    .btn-outline-light:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,.06);
+      transform: translateY(-2px);
+    }
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      transition: background var(--tr), box-shadow var(--tr), backdrop-filter var(--tr);
+      padding: 1rem 0;
+    }
+    #navbar.scrolled {
+      background: var(--navy-90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 32px rgba(0,0,0,.4);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.2; flex-shrink: 0; }
+    .nav-logo-main {
+      font-weight: 700;
+      font-size: .88rem;
+      letter-spacing: .06em;
+      color: var(--white);
+    }
+    .nav-logo-sub {
+      font-size: .65rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: .09em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .81rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      color: var(--slate);
+      transition: color var(--tr);
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .btn-nav-cta {
+      background: var(--gold) !important;
+      color: var(--navy) !important;
+      font-weight: 700 !important;
+      padding: .45rem 1.15rem;
+      border-radius: 6px;
+      font-size: .78rem !important;
+      letter-spacing: .06em;
+      transition: background var(--tr), transform var(--tr);
+      white-space: nowrap;
+    }
+    .btn-nav-cta:hover { background: var(--gold-l) !important; transform: translateY(-1px); }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: .25rem;
+      z-index: 1001;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform var(--tr), opacity var(--tr);
+    }
+
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: var(--navy);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.15rem; }
+      .nav-hamburger { display: flex; }
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+    #hero {
+      height: 100vh;
+      min-height: 640px;
+      max-height: 900px;
+      display: flex;
+      align-items: center;
+      padding-top: 72px; /* navbar height */
+      background:
+        radial-gradient(ellipse at 15% 60%, rgba(201,168,76,.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 20%, rgba(201,168,76,.05) 0%, transparent 45%),
+        var(--navy);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* decorative circles */
+    .hero-deco {
+      position: absolute;
+      right: -80px; top: 50%;
+      transform: translateY(-50%);
+      width: 440px; height: 440px;
+      border: 1px solid rgba(201,168,76,.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-deco::before {
+      content: '';
+      position: absolute;
+      inset: 44px;
+      border: 1px solid rgba(201,168,76,.05);
+      border-radius: 50%;
+    }
+
+    /* Hero 2-col layout */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .hero-eyebrow {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .9rem;
+    }
+
+    .hero-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.025em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .hero-title em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.1em;
+      color: var(--gold);
+      display: block;
+      line-height: 1.05;
+    }
+
+    .hero-subtitle {
+      font-size: .92rem;
+      color: var(--slate);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .78rem;
+      color: var(--slate);
+    }
+    .hero-meta-item .icon { font-size: .9rem; }
+
+    /* Countdown */
+    .countdown-wrapper {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(201,168,76,.28);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    .countdown-label-top {
+      font-size: .6rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .75rem;
+      font-weight: 600;
+    }
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 0;
+      align-items: center;
+    }
+    .countdown-unit { text-align: center; }
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--white);
+      display: block;
+    }
+    .countdown-sep {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      color: var(--gold);
+      opacity: .5;
+      text-align: center;
+      padding: 0 .2rem;
+      line-height: 1;
+      margin-bottom: .9rem;
+    }
+    .countdown-unit-label {
+      font-size: .55rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--slate-d);
+      margin-top: .3rem;
+      font-weight: 600;
+    }
+    .countdown-ended {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--gold);
+      display: none;
+    }
+
+    /* Inscripción card (columna derecha) */
+    .hero-inscripcion-card {
+      width: 100%;
+      background: rgba(201,168,76,.1);
+      border: 1px solid rgba(201,168,76,.35);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.5rem;
+      text-align: center;
+    }
+    .hero-inscripcion-label {
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .35rem;
+    }
+    .hero-inscripcion-info {
+      font-size: .78rem;
+      color: var(--slate);
+      margin-bottom: .9rem;
+      line-height: 1.45;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1.25rem;
+    }
+
+    /* =====================================================
+       SOBRE (light)
+    ===================================================== */
+    #sobre .section-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .sobre-text p {
+      color: #4A5568;
+      font-size: .97rem;
+      line-height: 1.82;
+    }
+    .sobre-text p + p { margin-top: 1rem; }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+    }
+    .metric-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 2px 16px rgba(13,27,62,.07);
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
+      transition: transform var(--tr), box-shadow var(--tr);
+    }
+    .metric-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(13,27,62,.12);
+    }
+    .metric-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      display: block;
+    }
+    .metric-desc {
+      font-size: .73rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #64748B;
+      margin-top: .4rem;
+    }
+
+    /* =====================================================
+       EVENTO (dark)
+    ===================================================== */
+    .event-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 2rem;
+    }
+    .event-detail { display: flex; gap: 1rem; align-items: flex-start; }
+    .event-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: .1rem; }
+    .event-detail-label {
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .3rem;
+    }
+    .event-detail-value { font-size: .98rem; font-weight: 600; color: var(--white); }
+    .event-detail-sub  { font-size: .78rem; color: var(--slate-d); margin-top: .2rem; }
+
+    .organiza-block { margin-top: 2.5rem; }
+    .organiza-label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--slate-d);
+      margin-bottom: 1rem;
+    }
+    .organiza-badges { display: flex; flex-wrap: wrap; gap: .65rem; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .4rem 1rem;
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 600;
+      border: 1px solid rgba(201,168,76,.35);
+      color: var(--slate);
+      background: rgba(201,168,76,.07);
+    }
+
+    /* =====================================================
+       AGENDA (light)
+    ===================================================== */
+    .timeline { margin-top: 3rem; position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 107px; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold-d) 10%, var(--gold-d) 90%, transparent);
+      opacity: .25;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+    }
+    .timeline-time {
+      flex-shrink: 0;
+      width: 82px;
+      text-align: right;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold-d);
+      padding-top: .9rem;
+      padding-right: .5rem;
+    }
+    .timeline-dot-wrap {
+      flex-shrink: 0;
+      width: 52px;
+      display: flex;
+      justify-content: center;
+      padding-top: 1.1rem;
+    }
+    .timeline-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold-d);
+      border: 2px solid var(--beige);
+      box-shadow: 0 0 0 3px rgba(168,133,46,.22);
+      flex-shrink: 0;
+    }
+    .timeline-content {
+      flex: 1;
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem 1.4rem;
+      box-shadow: 0 2px 12px rgba(13,27,62,.06);
+      border-left: 3px solid var(--gold);
+    }
+    .timeline-tag {
+      display: inline-block;
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: .18rem .55rem;
+      border-radius: 4px;
+      margin-bottom: .5rem;
+    }
+    .tag-apertura   { background: #E8F4FD; color: #1565C0; }
+    .tag-charla     { background: #FFF8E1; color: #E65100; }
+    .tag-networking { background: #E8F5E9; color: #2E7D32; }
+    .timeline-title { font-size: .97rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+    .timeline-desc  { font-size: .85rem; color: #64748B; }
+    .timeline-speaker { font-weight: 700; color: var(--navy); }
+
+    /* =====================================================
+       PONENTES (dark) — diseño con imagen destacada
+    ===================================================== */
+    #ponentes {
+      background:
+        radial-gradient(ellipse at 80% 50%, rgba(201,168,76,.07) 0%, transparent 55%),
+        var(--navy);
+    }
+
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-top: 3rem;
+    }
+
+    .speaker-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr);
+      display: flex;
+      flex-direction: column;
+    }
+    .speaker-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 56px rgba(0,0,0,.45);
+      border-color: rgba(201,168,76,.4);
+    }
+
+    /* Imagen IG cuadrada */
+    .speaker-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: rgba(201,168,76,.06);
+    }
+    .speaker-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .speaker-card:hover .speaker-img-wrap img {
+      transform: scale(1.04);
+    }
+    /* Overlay degradado sobre la imagen */
+    .speaker-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,27,62,.85) 0%, rgba(13,27,62,.2) 50%, transparent 100%);
+    }
+    /* Badge "Speaker confirmado" sobre la imagen */
+    .speaker-badge {
+      position: absolute;
+      bottom: .85rem; left: .85rem;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: rgba(13,27,62,.75);
+      border: 1px solid rgba(201,168,76,.45);
+      border-radius: 999px;
+      padding: .3rem .75rem;
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      backdrop-filter: blur(6px);
+    }
+    .speaker-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #22C55E;
+      flex-shrink: 0;
+    }
+
+    /* Cuerpo de la card */
+    .speaker-body {
+      padding: 1.5rem 1.6rem 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .speaker-name {
+      font-size: 1.2rem; font-weight: 800;
+      color: var(--white); margin-bottom: .25rem;
+      letter-spacing: -.01em;
+    }
+    .speaker-role {
+      font-size: .6rem; font-weight: 700;
+      letter-spacing: .13em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .9rem;
+    }
+    .speaker-bio {
+      font-size: .84rem; color: var(--slate);
+      line-height: 1.72; margin-bottom: 1.1rem;
+      flex: 1;
+    }
+    .speaker-topic {
+      display: flex; align-items: flex-start; gap: .5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: auto;
+    }
+    .speaker-topic-label {
+      font-size: .58rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--slate-d); flex-shrink: 0; padding-top: .2rem;
+    }
+    .speaker-topic-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.02rem; color: var(--white); line-height: 1.4;
+    }
+
+    @media (max-width: 860px) {
+      .speakers-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+    }
+    @media (min-width: 640px) and (max-width: 860px) {
+      .speakers-grid { grid-template-columns: repeat(2, 1fr); max-width: none; }
+    }
+
+    /* =====================================================
+       EDICIONES (light)
+    ===================================================== */
+    .editions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1.1rem;
+      margin-top: 3rem;
+    }
+    .edition-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(13,27,62,.07);
+      border-top: 3px solid var(--beige-d);
+      transition: transform var(--tr), box-shadow var(--tr);
+      position: relative;
+    }
+    .edition-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(13,27,62,.12);
+    }
+    .edition-card.current { border-top-color: var(--gold); }
+    .edition-badge-current {
+      position: absolute; top: 1rem; right: 1rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .52rem; font-weight: 800;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .22rem .6rem; border-radius: 4px;
+    }
+    .edition-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem; font-weight: 700;
+      color: var(--navy); line-height: 1; margin-bottom: .4rem;
+    }
+    .edition-num {
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gold-d); margin-bottom: .65rem;
+    }
+    .edition-name { font-size: .9rem; font-weight: 700; color: var(--navy); line-height: 1.4; margin-bottom: .45rem; }
+    .edition-desc { font-size: .78rem; color: #64748B; line-height: 1.6; }
+
+    /* =====================================================
+       CONTACTO (dark)
+    ===================================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.1rem;
+      margin-top: 3rem;
+    }
+    .contact-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color var(--tr), transform var(--tr);
+    }
+    .contact-card:hover { border-color: rgba(201,168,76,.4); transform: translateY(-3px); }
+    .contact-icon { font-size: 1.7rem; margin-bottom: .7rem; }
+    .contact-type {
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .3rem;
+    }
+    .contact-value { font-size: .97rem; font-weight: 600; color: var(--white); }
+    .contact-link {
+      display: inline-block;
+      margin-top: .5rem;
+      font-size: .76rem;
+      color: var(--gold);
+      border-bottom: 1px solid rgba(201,168,76,.3);
+      transition: border-color var(--tr);
+    }
+    .contact-link:hover { border-color: var(--gold); }
+
+    .location-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-top: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .location-label {
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .45rem;
+    }
+    .location-name { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: .2rem; }
+    .location-sub  { font-size: .82rem; color: var(--slate-d); }
+
+    .auspicios-block {
+      margin-top: 3rem;
+      padding: 2rem;
+      border: 1px dashed rgba(201,168,76,.28);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+    .auspicios-title {
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--slate-d); margin-bottom: .9rem;
+    }
+    .auspicios-empty { color: var(--slate-d); font-size: .88rem; margin-bottom: 1.2rem; font-style: italic; }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    footer {
+      background: #070F23;
+      color: var(--slate);
+      padding: 3.5rem 0 1.5rem;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .footer-logo-main { font-weight: 800; font-size: .95rem; color: var(--white); letter-spacing: .05em; margin-bottom: .2rem; }
+    .footer-logo-sub  { font-size: .68rem; color: var(--gold); letter-spacing: .1em; margin-bottom: .9rem; }
+    .footer-desc      { font-size: .8rem; line-height: 1.72; color: var(--slate-d); max-width: 270px; }
+    .footer-col-title {
+      font-size: .66rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.15rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .footer-links a { font-size: .83rem; color: var(--slate-d); transition: color var(--tr); }
+    .footer-links a:hover { color: var(--white); }
+    .footer-social { display: flex; gap: .65rem; margin-top: .4rem; }
+    .social-btn {
+      width: 36px; height: 36px;
+      border-radius: 7px;
+      border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; color: var(--slate);
+      transition: border-color var(--tr), color var(--tr), background var(--tr);
+    }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,.08); }
+    .footer-bottom {
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+    .footer-copy { font-size: .76rem; color: var(--slate-d); }
+
+    /* =====================================================
+       SCROLL ANIMATIONS
+    ===================================================== */
+    .anim-ready {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .anim-ready.visible { opacity: 1; transform: translateY(0); }
+    .anim-delay-1 { transition-delay: .1s; }
+    .anim-delay-2 { transition-delay: .2s; }
+    .anim-delay-3 { transition-delay: .3s; }
+    .anim-delay-4 { transition-delay: .4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .anim-ready { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+    @media (max-width: 900px) {
+      #sobre .section-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      #hero { height: auto; max-height: none; padding-top: 5rem; padding-bottom: 3rem; }
+      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-right { width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .section-inner { padding: 4rem 0; }
+      .hero-title { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+      .countdown-num { font-size: 2.4rem; }
+      .countdown-sep { font-size: 2rem; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .timeline::before { left: 68px; }
+      .timeline-time { width: 52px; font-size: 1rem; }
+      .timeline-dot-wrap { width: 32px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .event-card { grid-template-columns: 1fr; }
+      .speakers-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 380px) {
+      .countdown-sep { display: none; }
+      .countdown-grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" aria-label="Navegación principal">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo" aria-label="Inicio — Líderes que Inspiran UTFSM">
+          <span class="nav-logo-main">LÍDERES QUE INSPIRAN</span>
+          <span class="nav-logo-sub">UTFSM · Ing. Comercial</span>
+        </a>
+
+        <button class="nav-hamburger" id="hamburger"
+                aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-menu" role="list">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#evento">Evento</a></li>
+          <li><a href="#agenda">Agenda</a></li>
+          <li><a href="#ponentes">Ponentes</a></li>
+          <li><a href="#ediciones">Ediciones</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li>
+            <a href="https://forms.cloud.microsoft/r/SRTm8CTwyk"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-nav-cta">Inscríbete</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ================================================
+         HERO
+    ================================================= -->
+    <section id="hero" aria-labelledby="hero-title">
+      <div class="hero-deco" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-grid">
+
+          <!-- COLUMNA IZQUIERDA: texto -->
+          <div class="hero-left">
+            <p class="hero-eyebrow">Seminario Anual · Departamento de Ingeniería Comercial</p>
+
+            <h1 class="hero-title" id="hero-title">
+              Detrás del
+              <em>Éxito</em>
+            </h1>
+
+            <p class="hero-subtitle">
+              Un espacio de encuentro entre líderes empresariales y la comunidad académica
+              de la Universidad Técnica Federico Santa María.
+            </p>
+
+            <div class="hero-meta" aria-label="Datos del evento">
+              <span class="hero-meta-item"><span class="icon" aria-hidden="true">📍</span> Ex Bolsa de Valores, Valparaíso</span>
+              <span class="hero-meta-item"><span class="icon" aria-hidden="true">📅</span> 11 de Junio, 2026</span>
+              <span class="hero-meta-item"><span class="icon" aria-hidden="true">🕐</span> 14:00 – 18:00 hrs</span>
+              <span class="hero-meta-item"><span class="icon" aria-hidden="true">📸</span> @liderazgo.usm</span>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#agenda" class="btn btn-outline-light">Ver programa</a>
+              <a href="#ponentes" class="btn btn-outline-light">Ver ponentes</a>
+            </div>
+          </div>
+
+          <!-- COLUMNA DERECHA: countdown + inscripción -->
+          <div class="hero-right">
+
+            <!-- Countdown -->
+            <div class="countdown-wrapper" role="timer" aria-label="Cuenta regresiva al evento">
+              <p class="countdown-label-top">Faltan para el evento</p>
+              <div class="countdown-grid" id="countdown-grid">
+                <div class="countdown-unit">
+                  <span class="countdown-num" id="cd-days">--</span>
+                  <span class="countdown-unit-label">Días</span>
+                </div>
+                <span class="countdown-sep" aria-hidden="true">:</span>
+                <div class="countdown-unit">
+                  <span class="countdown-num" id="cd-hours">--</span>
+                  <span class="countdown-unit-label">Horas</span>
+                </div>
+                <span class="countdown-sep" aria-hidden="true">:</span>
+                <div class="countdown-unit">
+                  <span class="countdown-num" id="cd-mins">--</span>
+                  <span class="countdown-unit-label">Minutos</span>
+                </div>
+                <span class="countdown-sep" aria-hidden="true">:</span>
+                <div class="countdown-unit">
+                  <span class="countdown-num" id="cd-secs">--</span>
+                  <span class="countdown-unit-label">Segundos</span>
+                </div>
+              </div>
+              <p class="countdown-ended" id="countdown-ended" aria-live="polite">
+                ¡El evento ha comenzado!
+              </p>
+            </div>
+
+            <!-- Card inscripción -->
+            <div class="hero-inscripcion-card">
+              <p class="hero-inscripcion-label">Inscripción abierta</p>
+              <p class="hero-inscripcion-info">
+                Entrada liberada · Cupos limitados<br>
+                Jueves 11 de junio, 2026 · 14:00 hrs
+              </p>
+              <a href="https://forms.cloud.microsoft/r/SRTm8CTwyk"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn btn-gold" style="width:100%; justify-content:center; font-size:.95rem; padding:.9rem 1.5rem;">
+                Inscríbete gratis →
+              </a>
+            </div>
+
+          </div><!-- /hero-right -->
+        </div><!-- /hero-grid -->
+      </div>
+    </section>
+
+    <!-- ================================================
+         PONENTES (dark) — segunda sección, después del hero
+    ================================================= -->
+    <section id="ponentes" class="section-dark" aria-labelledby="ponentes-title">
+      <div class="container">
+        <div class="section-inner">
+          <span class="section-label">Expositores 2026</span>
+          <h2 class="section-title" id="ponentes-title">
+            Conoce a los <em>expositores</em>
+          </h2>
+          <span class="gold-line" aria-hidden="true"></span>
+
+          <div class="speakers-grid">
+
+            <article class="speaker-card anim-ready">
+              <div class="speaker-img-wrap">
+                <img src="Post IG - Seminario USM - 30.png"
+                     alt="Evelyn Matthei — Speaker confirmada, Seminario Detrás del Éxito 2026" />
+                <span class="speaker-badge">Speaker confirmada</span>
+              </div>
+              <div class="speaker-body">
+                <h3 class="speaker-name">Evelyn Matthei</h3>
+                <p class="speaker-role">Economista · Figura Política Chilena</p>
+                <p class="speaker-bio">
+                  Ex senadora, ex ministra del Trabajo y alcaldesa de Providencia. Amplia trayectoria en gestión
+                  pública, economía y toma de decisiones estratégicas. Referente del liderazgo femenino en Chile.
+                </p>
+                <div class="speaker-topic">
+                  <span class="speaker-topic-label">Tema</span>
+                  <span class="speaker-topic-value">"Liderazgo en el servicio público"</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="speaker-card anim-ready anim-delay-1">
+              <div class="speaker-img-wrap">
+                <img src="Post IG - Seminario USM - 27.png"
+                     alt="Joselyn Bravo — Speaker confirmada, Seminario Detrás del Éxito 2026" />
+                <span class="speaker-badge">Speaker confirmada</span>
+              </div>
+              <div class="speaker-body">
+                <h3 class="speaker-name">Joselyn Bravo</h3>
+                <p class="speaker-role">Especialista en Innovación · Liderazgo Femenino</p>
+                <p class="speaker-bio">
+                  Más de 15 años liderando proyectos de innovación corporativa y desarrollo de negocios en Chile.
+                  Impulsora del liderazgo femenino y del emprendimiento con impacto real en organizaciones.
+                </p>
+                <div class="speaker-topic">
+                  <span class="speaker-topic-label">Tema</span>
+                  <span class="speaker-topic-value">"Innovación y transformación empresarial"</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="speaker-card anim-ready anim-delay-2">
+              <div class="speaker-img-wrap">
+                <img src="Post IG - Seminario USM - 12.png"
+                     alt="Reinaldo Lippi — Speaker confirmado, Seminario Detrás del Éxito 2026" />
+                <span class="speaker-badge">Speaker confirmado</span>
+              </div>
+              <div class="speaker-body">
+                <h3 class="speaker-name">Reinaldo Lippi</h3>
+                <p class="speaker-role">Emprendedor · Fundador Lippi Outdoor &amp; Ofki</p>
+                <p class="speaker-bio">
+                  Emprendedor chileno que construyó desde cero una de las marcas outdoor más reconocidas del país.
+                  Su historia combina perseverancia, innovación y resiliencia. Hoy lidera Ofki, su nueva marca.
+                </p>
+                <div class="speaker-topic">
+                  <span class="speaker-topic-label">Tema</span>
+                  <span class="speaker-topic-value">"Perseverancia y reinvención en el emprendimiento"</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <div style="text-align:center; margin-top:3rem;" class="anim-ready">
+            <a href="https://forms.cloud.microsoft/r/SRTm8CTwyk"
+               target="_blank" rel="noopener noreferrer"
+               class="btn btn-gold">Inscríbete al seminario</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         SOBRE (light)
+    ================================================= -->
+    <section id="sobre" class="section-light" aria-labelledby="sobre-title">
+      <div class="container">
+        <div class="section-inner">
+          <div class="sobre-text">
+            <span class="section-label">Sobre el seminario</span>
+            <h2 class="section-title" id="sobre-title">
+              Un ciclo de diálogo<br><em>académico y profesional</em>
+            </h2>
+            <span class="gold-line" aria-hidden="true"></span>
+            <p>
+              El Seminario "Detrás del Éxito" es la 5ª edición de un ciclo anual organizado por el
+              Departamento de Ingeniería Comercial de la Universidad Técnica Federico Santa María.
+              Cada año convocamos a líderes empresariales, emprendedores y figuras públicas para
+              compartir sus experiencias con estudiantes, académicos y profesionales de Valparaíso.
+            </p>
+            <p>
+              El 11 de junio de 2026, en el histórico edificio de la Ex Bolsa de Valores de Valparaíso,
+              recibiremos a tres reconocidas personalidades que compartirán sus historias de liderazgo,
+              resiliencia e innovación en una jornada presencial y de entrada completamente gratuita.
+            </p>
+          </div>
+
+          <div class="metrics-grid" aria-label="Cifras del seminario">
+            <div class="metric-card anim-ready anim-delay-1">
+              <span class="metric-num">5+</span>
+              <span class="metric-desc">Ediciones realizadas</span>
+            </div>
+            <div class="metric-card anim-ready anim-delay-2">
+              <span class="metric-num">15+</span>
+              <span class="metric-desc">Ponentes destacados</span>
+            </div>
+            <div class="metric-card anim-ready anim-delay-3">
+              <span class="metric-num">500+</span>
+              <span class="metric-desc">Asistentes totales</span>
+            </div>
+            <div class="metric-card anim-ready anim-delay-4">
+              <span class="metric-num">100%</span>
+              <span class="metric-desc">Entrada gratuita</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         EVENTO (dark)
+    ================================================= -->
+    <section id="evento" class="section-dark" aria-labelledby="evento-title">
+      <div class="container">
+        <div class="section-inner">
+          <span class="section-label">Edición 2026</span>
+          <h2 class="section-title" id="evento-title">
+            Edición 2026 · <em>Detrás del Éxito</em>
+          </h2>
+          <span class="gold-line" aria-hidden="true"></span>
+
+          <div class="event-card anim-ready">
+            <div class="event-detail">
+              <span class="event-icon" aria-hidden="true">📅</span>
+              <div>
+                <p class="event-detail-label">Fecha</p>
+                <p class="event-detail-value">Jueves 11 de junio, 2026</p>
+              </div>
+            </div>
+            <div class="event-detail">
+              <span class="event-icon" aria-hidden="true">🕐</span>
+              <div>
+                <p class="event-detail-label">Horario</p>
+                <p class="event-detail-value">14:00 – 18:00 horas</p>
+                <p class="event-detail-sub">Hora de Chile (UTC-4)</p>
+              </div>
+            </div>
+            <div class="event-detail">
+              <span class="event-icon" aria-hidden="true">📍</span>
+              <div>
+                <p class="event-detail-label">Lugar</p>
+                <p class="event-detail-value">Ex Bolsa de Valores</p>
+                <p class="event-detail-sub">Valparaíso, Chile</p>
+              </div>
+            </div>
+            <div class="event-detail">
+              <span class="event-icon" aria-hidden="true">🎟️</span>
+              <div>
+                <p class="event-detail-label">Modalidad</p>
+                <p class="event-detail-value">Presencial</p>
+                <p class="event-detail-sub">Entrada liberada · Cupos limitados</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="organiza-block anim-ready">
+            <p class="organiza-label">Organiza</p>
+            <div class="organiza-badges">
+              <span class="badge"><span aria-hidden="true">🎓</span> Universidad Técnica Federico Santa María</span>
+              <span class="badge"><span aria-hidden="true">🏛️</span> Depto. Ingeniería Comercial</span>
+              <span class="badge"><span aria-hidden="true">📸</span> @liderazgo.usm</span>
+            </div>
+          </div>
+
+          <div style="margin-top:2.5rem;" class="anim-ready">
+            <a href="https://forms.cloud.microsoft/r/SRTm8CTwyk"
+               target="_blank" rel="noopener noreferrer"
+               class="btn btn-gold">Reserva tu lugar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         AGENDA (light)
+    ================================================= -->
+    <section id="agenda" class="section-light" aria-labelledby="agenda-title">
+      <div class="container">
+        <div class="section-inner">
+          <span class="section-label">Programa del día</span>
+          <h2 class="section-title" id="agenda-title">
+            <em>Agenda</em> del 11 de junio
+          </h2>
+          <span class="gold-line" aria-hidden="true"></span>
+
+          <div class="timeline" role="list" aria-label="Programa del evento">
+
+            <article class="timeline-item anim-ready" role="listitem">
+              <div class="timeline-time">14:00</div>
+              <div class="timeline-dot-wrap" aria-hidden="true"><div class="timeline-dot"></div></div>
+              <div class="timeline-content">
+                <span class="timeline-tag tag-apertura">Apertura</span>
+                <h3 class="timeline-title">Bienvenida e introducción</h3>
+                <p class="timeline-desc">
+                  Palabras inaugurales de las autoridades del
+                  <strong class="timeline-speaker">Departamento de Ingeniería Comercial</strong>, UTFSM.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item anim-ready anim-delay-1" role="listitem">
+              <div class="timeline-time">14:30</div>
+              <div class="timeline-dot-wrap" aria-hidden="true"><div class="timeline-dot"></div></div>
+              <div class="timeline-content">
+                <span class="timeline-tag tag-charla">Charla Magistral</span>
+                <h3 class="timeline-title">Liderazgo en el servicio público</h3>
+                <p class="timeline-desc">
+                  <strong class="timeline-speaker">Evelyn Matthei</strong> —
+                  Economista, ex senadora, ex ministra del Trabajo y alcaldesa de Providencia.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item anim-ready anim-delay-2" role="listitem">
+              <div class="timeline-time">15:30</div>
+              <div class="timeline-dot-wrap" aria-hidden="true"><div class="timeline-dot"></div></div>
+              <div class="timeline-content">
+                <span class="timeline-tag tag-charla">Charla Magistral</span>
+                <h3 class="timeline-title">Innovación y transformación empresarial</h3>
+                <p class="timeline-desc">
+                  <strong class="timeline-speaker">Joselyn Bravo</strong> —
+                  Especialista en Innovación y Liderazgo Femenino, más de 15 años en innovación corporativa.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item anim-ready anim-delay-3" role="listitem">
+              <div class="timeline-time">16:30</div>
+              <div class="timeline-dot-wrap" aria-hidden="true"><div class="timeline-dot"></div></div>
+              <div class="timeline-content">
+                <span class="timeline-tag tag-charla">Charla Magistral</span>
+                <h3 class="timeline-title">Perseverancia y reinvención en el emprendimiento</h3>
+                <p class="timeline-desc">
+                  <strong class="timeline-speaker">Reinaldo Lippi</strong> —
+                  Fundador de Lippi Outdoor y Ofki. Emprendedor serial con historia de resiliencia.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item anim-ready anim-delay-4" role="listitem">
+              <div class="timeline-time">17:30</div>
+              <div class="timeline-dot-wrap" aria-hidden="true"><div class="timeline-dot"></div></div>
+              <div class="timeline-content">
+                <span class="timeline-tag tag-networking">Networking</span>
+                <h3 class="timeline-title">Cierre y networking</h3>
+                <p class="timeline-desc">
+                  Espacio de conexión entre ponentes, estudiantes y profesionales asistentes.
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         EDICIONES (light)
+    ================================================= -->
+    <section id="ediciones" class="section-light" aria-labelledby="ediciones-title">
+      <div class="container">
+        <div class="section-inner">
+          <span class="section-label">Historial</span>
+          <h2 class="section-title" id="ediciones-title">
+            Ediciones <em>anteriores</em>
+          </h2>
+          <span class="gold-line" aria-hidden="true"></span>
+
+          <div class="editions-grid">
+
+            <article class="edition-card anim-ready">
+              <p class="edition-year">2023</p>
+              <p class="edition-num">1ª Edición</p>
+              <h3 class="edition-name">Seminario de Liderazgo y Capital Humano</h3>
+              <p class="edition-desc">Primera edición del ciclo anual, con foco en liderazgo organizacional y gestión de personas.</p>
+            </article>
+
+            <article class="edition-card anim-ready anim-delay-1">
+              <p class="edition-year">2024</p>
+              <p class="edition-num">2ª Edición · 1er sem.</p>
+              <h3 class="edition-name">Camino al Éxito</h3>
+              <p class="edition-desc">Estrategia de gestión para liderazgo y desarrollo empresarial. Foco en planificación y ejecución.</p>
+            </article>
+
+            <article class="edition-card anim-ready anim-delay-2">
+              <p class="edition-year">2024</p>
+              <p class="edition-num">3ª Edición · 2do sem.</p>
+              <h3 class="edition-name">CEO Mindset</h3>
+              <p class="edition-desc">Explorando la mentalidad y toma de decisiones de los líderes de alta dirección en Chile.</p>
+            </article>
+
+            <article class="edition-card anim-ready anim-delay-3">
+              <p class="edition-year">2025</p>
+              <p class="edition-num">4ª Edición</p>
+              <h3 class="edition-name">Líderes que Inspiran</h3>
+              <p class="edition-desc">Un espacio para conocer las historias detrás de quienes mueven Chile hacia adelante.</p>
+            </article>
+
+            <article class="edition-card current anim-ready anim-delay-4">
+              <span class="edition-badge-current" aria-label="Edición actual">EDICIÓN ACTUAL</span>
+              <p class="edition-year">2026</p>
+              <p class="edition-num">5ª Edición</p>
+              <h3 class="edition-name">Detrás del Éxito</h3>
+              <p class="edition-desc">Ex Bolsa de Valores, Valparaíso · 11 de junio · Matthei, Bravo, Lippi.</p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         CONTACTO (dark)
+    ================================================= -->
+    <section id="contacto" class="section-dark" aria-labelledby="contacto-title">
+      <div class="container">
+        <div class="section-inner">
+          <span class="section-label">Contacto</span>
+          <h2 class="section-title" id="contacto-title">
+            Más <em>información</em>
+          </h2>
+          <span class="gold-line" aria-hidden="true"></span>
+
+          <div class="contact-grid">
+            <div class="contact-card anim-ready">
+              <div class="contact-icon" aria-hidden="true">📸</div>
+              <p class="contact-type">Instagram</p>
+              <p class="contact-value">@liderazgo.usm</p>
+              <a href="https://instagram.com/liderazgo.usm"
+                 target="_blank" rel="noopener noreferrer"
+                 class="contact-link" aria-label="Visitar Instagram @liderazgo.usm">
+                Seguir en Instagram →
+              </a>
+            </div>
+            <div class="contact-card anim-ready anim-delay-1">
+              <div class="contact-icon" aria-hidden="true">✉️</div>
+              <p class="contact-type">Correo electrónico</p>
+              <p class="contact-value">seminario@usm.cl</p>
+              <a href="mailto:seminario@usm.cl"
+                 class="contact-link" aria-label="Enviar correo a seminario@usm.cl">
+                Escribir correo →
+              </a>
+            </div>
+            <div class="contact-card anim-ready anim-delay-2">
+              <div class="contact-icon" aria-hidden="true">🌐</div>
+              <p class="contact-type">Sitio web</p>
+              <p class="contact-value">ingcomercial.usm.cl</p>
+              <a href="https://ingcomercial.usm.cl"
+                 target="_blank" rel="noopener noreferrer"
+                 class="contact-link" aria-label="Visitar sitio web del departamento">
+                Visitar sitio →
+              </a>
+            </div>
+          </div>
+
+          <!-- Ubicación -->
+          <div class="location-card anim-ready">
+            <div>
+              <p class="location-label">Ubicación del evento</p>
+              <p class="location-name">Ex Bolsa de Valores de Valparaíso</p>
+              <p class="location-sub">Región de Valparaíso, Chile</p>
+            </div>
+            <a href="https://maps.google.com/?q=Ex+Bolsa+de+Valores+Valparaiso+Chile"
+               target="_blank" rel="noopener noreferrer"
+               class="btn btn-outline-light"
+               style="font-size:.8rem; padding:.6rem 1.2rem; white-space:nowrap;"
+               aria-label="Ver Ex Bolsa de Valores en Google Maps">
+              📍 Ver en mapa
+            </a>
+          </div>
+
+          <!-- Auspicios -->
+          <div class="auspicios-block anim-ready">
+            <p class="auspicios-title">Auspicios 2026</p>
+            <p class="auspicios-empty">Aún no hay auspicios confirmados para esta edición.</p>
+            <a href="mailto:seminario@usm.cl?subject=Auspicio%20Seminario%202026"
+               class="btn btn-outline-light"
+               style="font-size:.82rem; padding:.6rem 1.4rem;"
+               aria-label="Contactar para sumar auspicio al seminario">
+              + Sumar auspicio
+            </a>
+          </div>
+
+          <div style="text-align:center; margin-top:3.5rem;" class="anim-ready">
+            <a href="https://forms.cloud.microsoft/r/SRTm8CTwyk"
+               target="_blank" rel="noopener noreferrer"
+               class="btn btn-gold" style="font-size:1rem; padding:1rem 2.5rem;">
+              Inscríbete gratis al seminario
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+
+        <div>
+          <p class="footer-logo-main">LÍDERES QUE INSPIRAN</p>
+          <p class="footer-logo-sub">UTFSM · Ing. Comercial</p>
+          <p class="footer-desc">
+            Seminario anual organizado por el Departamento de Ingeniería Comercial de la
+            Universidad Técnica Federico Santa María. Conectando academia y mundo profesional desde 2023.
+          </p>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Navegación</p>
+          <ul class="footer-links" role="list">
+            <li><a href="#sobre">Sobre el seminario</a></li>
+            <li><a href="#evento">Información del evento</a></li>
+            <li><a href="#agenda">Agenda del día</a></li>
+            <li><a href="#ponentes">Ponentes 2026</a></li>
+            <li><a href="#ediciones">Ediciones anteriores</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Conecta</p>
+          <div class="footer-social" aria-label="Redes sociales">
+            <a href="https://instagram.com/liderazgo.usm"
+               target="_blank" rel="noopener noreferrer"
+               class="social-btn" aria-label="Instagram @liderazgo.usm">IG</a>
+            <a href="mailto:seminario@usm.cl"
+               class="social-btn" aria-label="Correo electrónico">✉</a>
+            <a href="https://ingcomercial.usm.cl"
+               target="_blank" rel="noopener noreferrer"
+               class="social-btn" aria-label="Sitio web Ingeniería Comercial UTFSM">🌐</a>
+          </div>
+
+          <p class="footer-col-title" style="margin-top:1.5rem;">Inscripción</p>
+          <a href="https://forms.cloud.microsoft/r/SRTm8CTwyk"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-gold" style="font-size:.78rem; padding:.5rem 1.1rem; margin-top:.25rem;">
+            Inscríbete gratis
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 · UTFSM · Departamento de Ingeniería Comercial · Todos los derechos reservados</p>
+        <p class="footer-copy">Seminario "Detrás del Éxito" — 5ª edición</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* --------------------------------------------------
+       NAVBAR SCROLL + BLUR
+    -------------------------------------------------- */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* --------------------------------------------------
+       HAMBURGER MENU
+    -------------------------------------------------- */
+    const hamburger = document.getElementById('hamburger');
+    const navMenu   = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    navMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Abrir menú');
+        document.body.style.overflow = '';
+      });
+    });
+
+    /* --------------------------------------------------
+       SMOOTH SCROLL (offset para navbar fijo)
+    -------------------------------------------------- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - navbar.offsetHeight - 16;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    /* --------------------------------------------------
+       COUNTDOWN — 11 jun 2026 14:00 Chile UTC-4
+       → UTC equivalente: 18:00 UTC
+    -------------------------------------------------- */
+    const EVENT_UTC = Date.UTC(2026, 5, 11, 18, 0, 0);   // mes 5 = junio (0-based)
+
+    const cdDays  = document.getElementById('cd-days');
+    const cdHours = document.getElementById('cd-hours');
+    const cdMins  = document.getElementById('cd-mins');
+    const cdSecs  = document.getElementById('cd-secs');
+    const cdGrid  = document.getElementById('countdown-grid');
+    const cdEnded = document.getElementById('countdown-ended');
+
+    const pad = n => String(n).padStart(2, '0');
+
+    function tick() {
+      const diff = EVENT_UTC - Date.now();
+      if (diff <= 0) {
+        cdGrid.style.display  = 'none';
+        cdEnded.style.display = 'block';
+        clearInterval(timer);
+        return;
+      }
+      const s = Math.floor(diff / 1000);
+      cdDays.textContent  = pad(Math.floor(s / 86400));
+      cdHours.textContent = pad(Math.floor((s % 86400) / 3600));
+      cdMins.textContent  = pad(Math.floor((s % 3600) / 60));
+      cdSecs.textContent  = pad(s % 60);
+    }
+
+    tick();
+    const timer = setInterval(tick, 1000);
+
+    /* --------------------------------------------------
+       INTERSECTION OBSERVER (fade-in on scroll)
+    -------------------------------------------------- */
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+      document.querySelectorAll('.anim-ready').forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll('.anim-ready').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>
