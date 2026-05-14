@@ -834,9 +834,50 @@
     .auspicios-title {
       font-size: .65rem; font-weight: 700;
       letter-spacing: .16em; text-transform: uppercase;
-      color: var(--slate-d); margin-bottom: .9rem;
+      color: var(--slate-d); margin-bottom: 1.25rem;
     }
     .auspicios-empty { color: var(--slate-d); font-size: .88rem; margin-bottom: 1.2rem; font-style: italic; }
+
+    .auspicio-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+    .auspicio-card {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      max-width: 420px;
+      width: 100%;
+    }
+    .auspicio-logo-wrap {
+      flex-shrink: 0;
+      width: 72px;
+      height: 72px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+    .auspicio-logo-wrap img { width: 100%; height: 100%; object-fit: contain; }
+    .auspicio-name {
+      font-size: 1rem; font-weight: 700;
+      color: var(--white); margin-bottom: .2rem;
+    }
+    .auspicio-desc {
+      font-size: .76rem; color: var(--slate-d);
+      margin-bottom: .75rem;
+    }
+    .auspicio-links { display: flex; flex-wrap: wrap; gap: .5rem; }
 
     /* =====================================================
        FOOTER
@@ -883,6 +924,48 @@
       gap: .75rem;
     }
     .footer-copy { font-size: .76rem; color: var(--slate-d); }
+
+    .footer-dev {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .75rem 1.25rem;
+    }
+    .footer-dev-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,.4);
+      flex-shrink: 0;
+      background: #111;
+    }
+    .footer-dev-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .footer-dev-info {
+      display: flex; flex-direction: column;
+      line-height: 1.3;
+    }
+    .footer-dev-label { font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; color: var(--slate-d); }
+    .footer-dev-name  { font-size: .82rem; font-weight: 600; color: var(--white); }
+    .footer-dev-links { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .footer-dev-btn {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .3rem .75rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.12);
+      font-size: .72rem; font-weight: 500;
+      color: var(--slate-d);
+      transition: border-color var(--tr), color var(--tr), background var(--tr);
+      white-space: nowrap;
+    }
+    .footer-dev-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,76,.07);
+    }
 
     /* =====================================================
        SCROLL ANIMATIONS
@@ -1452,14 +1535,41 @@
 
           <!-- Auspicios -->
           <div class="auspicios-block anim-ready">
-            <p class="auspicios-title">Auspicios 2026</p>
-            <p class="auspicios-empty">Aún no hay auspicios confirmados para esta edición.</p>
-            <a href="mailto:seminarioliderazgo.usm@gmail.com?subject=Auspicio%20Seminario%202026"
-               class="btn btn-outline-light"
-               style="font-size:.82rem; padding:.6rem 1.4rem;"
-               aria-label="Contactar para sumar auspicio al seminario">
-              + Sumar auspicio
-            </a>
+            <p class="auspicios-title">Auspiciadores 2026</p>
+
+            <div class="auspicio-cards">
+
+              <!-- Tinggo -->
+              <div class="auspicio-card">
+                <div class="auspicio-logo-wrap">
+                  <img src="THINGGOVERTICALVERRDE_PNG (2).png" alt="Tinggo — Auspiciador oficial" />
+                </div>
+                <div class="auspicio-info">
+                  <p class="auspicio-name">Tinggo</p>
+                  <p class="auspicio-desc">Plataforma de arriendo, contratación de servicios y venta de entradas segura entre personas</p>
+                  <div class="auspicio-links">
+                    <a href="https://tinggoapp.cl/" target="_blank" rel="noopener noreferrer"
+                       class="btn btn-gold" style="font-size:.75rem; padding:.45rem 1rem;">
+                      🌐 Visitar sitio
+                    </a>
+                    <a href="https://www.instagram.com/tinggoapp/" target="_blank" rel="noopener noreferrer"
+                       class="btn btn-outline-light" style="font-size:.75rem; padding:.45rem 1rem;">
+                      IG @tinggoapp
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div style="margin-top:1.5rem;">
+              <a href="mailto:seminarioliderazgo.usm@gmail.com?subject=Auspicio%20Seminario%202026"
+                 class="btn btn-outline-light"
+                 style="font-size:.82rem; padding:.6rem 1.4rem;"
+                 aria-label="Contactar para sumar auspicio al seminario">
+                + Sumar auspicio
+              </a>
+            </div>
           </div>
 
           <div style="text-align:center; margin-top:3.5rem;" class="anim-ready">
@@ -1527,6 +1637,31 @@
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2026 · UTFSM · Departamento de Ingeniería Comercial · Todos los derechos reservados</p>
         <p class="footer-copy">Seminario "Detrás del Éxito" — 5ª edición</p>
+      </div>
+
+      <!-- Créditos desarrollador -->
+      <div class="footer-dev">
+        <div class="footer-dev-avatar">
+          <img src="Icono verde fondo negroRecurso 2.png" alt="Cristian Salinas — Desarrollador" />
+        </div>
+        <div class="footer-dev-info">
+          <span class="footer-dev-label">Desarrollado por</span>
+          <span class="footer-dev-name">Cristian Salinas</span>
+        </div>
+        <div class="footer-dev-links">
+          <a href="https://www.linkedin.com/in/cristian-mauricio-salinas-orrego-a229061b2/"
+             target="_blank" rel="noopener noreferrer"
+             class="footer-dev-btn" aria-label="Ver perfil de LinkedIn de Cristian Salinas">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://wisbly.github.io/"
+             target="_blank" rel="noopener noreferrer"
+             class="footer-dev-btn" aria-label="Ver portafolio de Cristian Salinas">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Portafolio
+          </a>
+        </div>
       </div>
     </div>
   </footer>
